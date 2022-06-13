@@ -22,7 +22,8 @@ class Transaction {
    * @returns {string}
    */
   calculateHash() {
-    return crypto.createHash('sha256').update(this.fromAddress + this.toAddress + this.amount + this.timestamp).digest('hex');
+    return crypto.createHash('sha256').update(this.fromAddress + 
+                   this.toAddress + this.amount + this.timestamp).digest('hex');
   }
 
   /**
@@ -90,7 +91,8 @@ class Block {
    * @returns {string}
    */
   calculateHash() {
-    return crypto.createHash('sha256').update(this.previousHash + this.timestamp + JSON.stringify(this.transactions) + this.nonce).digest('hex');
+    return crypto.createHash('sha256').update(this.previousHash + 
+                  this.timestamp + JSON.stringify(this.transactions) + this.nonce).digest('hex');
   }
 
   /**
